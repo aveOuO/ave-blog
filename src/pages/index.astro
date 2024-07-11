@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import TestComponent from "../components/TestComponent.vue";
-import LiveComponent from "../components/LiveComponent.vue";
+
 ---
 
 <Layout title="欢迎来到blog">
@@ -9,5 +9,4 @@ import LiveComponent from "../components/LiveComponent.vue";
   <a href="/about">关于此站</a>
   <a href="/blog">博客1</a>
   <TestComponent client:load />
-  <LiveComponent client:load />
 </Layout>
