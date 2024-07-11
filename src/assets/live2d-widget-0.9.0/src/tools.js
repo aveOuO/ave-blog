@@ -34,18 +34,19 @@ const tools = {
                 window.ASTEROIDSPLAYERS.push(new Asteroids());
             } else {
                 const script = document.createElement("script");
-                script.src = "https://fastly.jsdelivr.net/gh/stevenjoezhang/asteroids/asteroids.js";
+                script.src = "https://cdn.jsdelivr.net/gh/aveOuO/ave-blog@main/src/assets/live2d-widget-0.9.0/src/asteroids.js";
+                // script.src = "https://fastly.jsdelivr.net/gh/stevenjoezhang/asteroids/asteroids.js";
                 document.head.appendChild(script);
             }
         }
     },
     "switch-model": {
         icon: fa_user_circle,
-        callback: () => {}
+        callback: () => { }
     },
     "switch-texture": {
         icon: fa_street_view,
-        callback: () => {}
+        callback: () => { }
     },
     "photo": {
         icon: fa_camera_retro,
@@ -58,7 +59,8 @@ const tools = {
     "info": {
         icon: fa_info_circle,
         callback: () => {
-            open("https://github.com/stevenjoezhang/live2d-widget");
+            // open("https://github.com/stevenjoezhang/live2d-widget");
+            open("https://github.com/aveOuO/live2d_api");
         }
     },
     "quit": {
