@@ -1,5 +1,5 @@
 // live2d_path 参数建议使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/aveOuO/ave-blog@main/src/assets/live2d-widget-0.9.0/";
+const live2d_path = "https://fastly.jsdelivr.net/gh/aveOuO/ave-blog@main/src/assets/live2d-widget-0.9.0/";
 // const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 //const live2d_path = "/live2d-widget/";
 

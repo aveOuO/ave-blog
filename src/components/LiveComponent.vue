@@ -2,7 +2,7 @@
   <div>
     <!-- <JsScript src="../src/assets/live2d-widget-0.9.0/autoload.js"></JsScript> -->
     <js-script
-      src="https://cdn.jsdelivr.net/gh/aveOuO/ave-blog@main/src/assets/live2d-widget-0.9.0/autoload.js"
+      src="https://fastly.jsdelivr.net/gh/aveOuO/ave-blog@main/src/assets/live2d-widget-0.9.0/autoload.js"
     ></js-script>
   </div>
 </template>
