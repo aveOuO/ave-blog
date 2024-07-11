@@ -10,11 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@astrojs/check": "^0.8.0",
     "@astrojs/mdx": "^3.1.2",
+    "@astrojs/react": "^3.6.0",
     "@astrojs/vue": "^4.5.0",
+    "antd": "^5.19.1",
     "astro": "^4.11.5",
+    "element-plus": "^2.7.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.77.7",
     "typescript": "^5.5.3",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.2",
+    "vite-plugin-style-import": "^2.0.0",
     "vue": "^3.4.31"
   }
 }
