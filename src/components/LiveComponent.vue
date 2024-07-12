@@ -19,8 +19,8 @@ const JsScript = defineComponent({
   },
 });
 
-const CssStyle = {
-  render: (props: { href: string }) =>
-    h("style", { rel: "stylesheet", href: props.href }),
-};
+// const CssStyle = {
+//   render: (props: { href: string }) =>
+//     h("style", { rel: "stylesheet", href: props.href }),
+// };
 </script>
