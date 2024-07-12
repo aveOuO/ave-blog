@@ -14,7 +14,8 @@ const JsScript = defineComponent({
     src: String,
   },
   setup: (props) => {
-    return () => h("script", { type: "text/javascript", src: props.src });
+    return () =>
+      h("script", { type: "text/javascript", src: props.src, defer: "defer" });
   },
 });
 
