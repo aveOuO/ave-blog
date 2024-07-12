@@ -6,6 +6,8 @@ import { fileURLToPath } from "url"
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,6 +39,11 @@ export default defineConfig({
         resolve: {
             alias: {
                 "@": resolve(dirname(fileURLToPath(import.meta.url)), "./src")
+            }
+        },
+        css: {
+            postcss: {
+                plugins: [tailwindcss, autoprefixer]
             }
         },
         ssr: {
