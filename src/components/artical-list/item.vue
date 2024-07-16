@@ -7,10 +7,16 @@
     <div class="h-[122px] w-[220px] mr-[20px]">
       <img :src="props.cover" :alt="props.title" />
     </div>
-    <div>
+    <div class="w-0 flex-grow">
       <h1 class="text-xl font-bold">{{ props.title }}</h1>
-      <p class="text-gray-500 mt-[10px] mb-[20px]">{{ props.desc }}</p>
-      <p class="text-sm">{{ dayjs(props.date).format("YYYY-MM-DD") }}</p>
+      <p
+        class="text-gray-500 mt-[10px] mb-[10px] text-ellipsis line-clamp-2 break-all whitespace-break-spaces"
+      >
+        {{ props.desc }}
+      </p>
+      <p class="text-sm mb-[5px] text-yellow-700">
+        于 {{ dayjs(props.date).format("YYYY-MM-DD HH:mm:ss") }} 发布
+      </p>
       <ul class="mr-[-5px] flex">
         <li v-for="(item, index) in props.tags" class="mr-[5px]">
           <ElTag
