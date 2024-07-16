@@ -1,7 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SiteHeader from "../components/SiteHeader.vue";
+import ArticalList from "../components/artical-list/list.vue";
+
+import { getCollection } from "astro:content";
+const articalEntries = await getCollection("articals");
 ---
 
-<Layout title="欢迎来到blog" path="/">
+<Layout title="弦琅的博客-首页" path="/">
+  <ArticalList
+    list={articalEntries.map((articalEntry) => {
+      const {
+        data: { title, desc, date, tags, cover },
+      } = articalEntry;
+      return { slug: articalEntry.slug, title, desc, date, tags, cover };
+    })}
+    client:visible
+  />
 </Layout>

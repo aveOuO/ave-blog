@@ -1,5 +1,5 @@
 <template>
-  <div class="aaaa" s>
+  <div class="aaaa">
     组件测试：
     <el-button type="primary" @click="notify('测试按钮')">主要</el-button>
     <el-button type="warning" @click="notify('警告')">警告</el-button>
