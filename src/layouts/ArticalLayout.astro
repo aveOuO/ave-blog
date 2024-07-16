@@ -1,29 +1,33 @@
 ---
-// import LiveComponent from "../components/LiveComponent.vue";
 import SiteHeader from "../components/SiteHeader.vue";
-import "element-plus/dist/index.css";
 import "tailwindcss/tailwind.css";
-interface Props {
-  title: string;
-  path: string;
-}
+import type { MarkdownLayoutProps } from "astro";
 
-const { title, path } = Astro.props;
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  date: string;
+  desc: string;
+  cover: string;
+  tags: string[];
+}>;
+const { frontmatter, url } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="弦琅的博客" />
+    <meta name="description" content="博客文章" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{frontmatter.title}</title>
   </head>
   <body>
-    <SiteHeader client:load path={path} />
+    <SiteHeader client:load path={url} />
     <div class="w-[1200px] mx-auto pt-[80px] min-h-[110vh]">
+      <h1 class="text-4xl font-bold mb-4 text-center">{frontmatter.title}</h1>
       <slot />
     </div>
     <!-- <LiveComponent client:load /> -->

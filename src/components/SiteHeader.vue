@@ -28,11 +28,10 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ path: string }>();
+const props = withDefaults(defineProps<{ path?: string }>(), { path: "/" });
 const menuList = [
   { name: "首页", path: "/" },
   { name: "关于弦琅", path: "/about" },
-  { name: "所有文章", path: "/archives" },
 ];
 
 const SCROLL_Y = 20;

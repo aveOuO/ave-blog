@@ -5,39 +5,49 @@ import dayjs from "dayjs";
 import { getCollection } from "astro:content";
 import { ElTag } from "element-plus";
 const articalEntries = await getCollection("articals");
+console.log(articalEntries);
 ---
 
 <Layout title="弦琅的博客-首页" path="/">
   <ul class="mb-[-20px]">
     {
       articalEntries.map(async (articalEntry) => {
-        const { Content, headings } = await articalEntry.render();
         const { data } = articalEntry;
         return (
-          <li class="mb-[20px] border border-gray-200 p-[20px] transition-all hover:shadow-gray-700 hover:shadow-sm cursor-pointer">
-            <h1 class="text-xl font-bold">{data.title}</h1>
-            <p class="text-gray-500 mt-[10px] mb-[20px]">{data.desc}</p>
-            <p class="text-sm">{dayjs(data.date).format("YYYY-MM-DD")}</p>
-            <ul class="mr-[-5px]">
-              {(data.tags || []).map((tag: string, index: number) => {
-                const tagMap = [
-                  "primary",
-                  "success",
-                  "info",
-                  "warning",
-                  "danger",
-                ];
-                return (
-                  <ElTag
-                    effect="dark"
-                    type={tagMap[index % (tagMap.length - 1)]}
-                    class="mr-[5px]"
-                  >
-                    {tag}
-                  </ElTag>
-                );
-              })}
-            </ul>
+          <li class="mb-[20px] border border-gray-200 p-[20px] transition-all hover:shadow-gray-700/60 hover:shadow-sm cursor-pointer">
+            <a
+              href={`/articals/${articalEntry.slug}`}
+              class="flex items-center w-full h-full"
+            >
+              <div class="h-[122px] w-[220px] mr-[20px]">
+                <img src={data.cover} alt={data.title} />
+              </div>
+              <div>
+                <h1 class="text-xl font-bold">{data.title}</h1>
+                <p class="text-gray-500 mt-[10px] mb-[20px]">{data.desc}</p>
+                <p class="text-sm">{dayjs(data.date).format("YYYY-MM-DD")}</p>
+                <ul class="mr-[-5px]">
+                  {(data.tags || []).map((tag: string, index: number) => {
+                    const tagMap = [
+                      "primary",
+                      "success",
+                      "info",
+                      "warning",
+                      "danger",
+                    ];
+                    return (
+                      <ElTag
+                        effect="dark"
+                        type={tagMap[index % (tagMap.length - 1)]}
+                        class="mr-[5px]"
+                      >
+                        {tag}
+                      </ElTag>
+                    );
+                  })}
+                </ul>
+              </div>
+            </a>
           </li>
         );
       })
