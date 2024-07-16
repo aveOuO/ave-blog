@@ -31,7 +31,7 @@
 const props = defineProps<{ path: string }>();
 const menuList = [
   { name: "首页", path: "/" },
-  { name: "关于咸琅", path: "/about" },
+  { name: "关于弦琅", path: "/about" },
   { name: "所有文章", path: "/archives" },
 ];
 
