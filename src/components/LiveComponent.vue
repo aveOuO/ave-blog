@@ -14,12 +14,13 @@ const JsScript = defineComponent({
     src: String,
   },
   setup: (props) => {
-    return () => h("script", { type: "text/javascript", src: props.src });
+    return () =>
+      h("script", { type: "text/javascript", src: props.src, defer: "defer" });
   },
 });
 
-const CssStyle = {
-  render: (props: { href: string }) =>
-    h("style", { rel: "stylesheet", href: props.href }),
-};
+// const CssStyle = {
+//   render: (props: { href: string }) =>
+//     h("style", { rel: "stylesheet", href: props.href }),
+// };
 </script>
