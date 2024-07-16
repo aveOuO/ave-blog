@@ -1,7 +1,10 @@
 <template>
-  <div class="tab-height bg-[#fc6423]">
+  <div
+    class="w-full transition-all ease-linear fixed tab-height"
+    :class="currentClass"
+  >
     <div class="w-[1200px] mx-auto flex justify-between items-center">
-      <div class="tab-height text-[30px] text-[#fff]">咸琅的博客</div>
+      <div class="tab-height text-[30px] text-[#fff]">弦琅的博客</div>
       <div class="tab-height">
         <ul class="flex items-center mr-[-20px]">
           <li
@@ -31,11 +34,44 @@ const menuList = [
   { name: "关于咸琅", path: "/about" },
   { name: "所有文章", path: "/archives" },
 ];
+
+const SCROLL_Y = 20;
+const DEFAULT_CLASS = "bg-[#fc6423] py-[5px] border-transparent ";
+const ACTIVE_CLASS =
+  "bg-[#fc6423]/40 py-[1px] border-gray-200 backdrop-blur-lg";
+const currentClass = ref(DEFAULT_CLASS);
+
+const onScroll = (scrollY) => {
+  if (scrollY > SCROLL_Y) {
+    return (currentClass.value = ACTIVE_CLASS);
+  }
+  currentClass.value = DEFAULT_CLASS;
+};
+
+let ticking = false;
+const scrollEvent = () => {
+  const scrollPos = window.scrollY;
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      onScroll(scrollPos);
+      ticking = false;
+    });
+    ticking = true;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", scrollEvent);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", scrollEvent);
+});
 </script>
 
 <style scoped lang="scss">
 .tab-height {
-  height: 60px;
+  min-height: 50px;
   line-height: 60px;
   text-align: center;
 }
@@ -55,3 +91,5 @@ const menuList = [
   }
 }
 </style>
+import type { Loading } from
+'element-plus/es/components/loading/src/service.mjs';
