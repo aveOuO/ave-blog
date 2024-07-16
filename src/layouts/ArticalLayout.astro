@@ -1,6 +1,7 @@
 ---
 import SiteHeader from "../components/SiteHeader.vue";
 import "tailwindcss/tailwind.css";
+import "../assets/style/public.css";
 import type { MarkdownLayoutProps } from "astro";
 
 type Props = MarkdownLayoutProps<{
@@ -28,7 +29,9 @@ const { frontmatter, url } = Astro.props;
     <SiteHeader client:load path={url} />
     <div class="w-[1200px] mx-auto pt-[80px] min-h-[110vh]">
       <h1 class="text-4xl font-bold mb-4 text-center">{frontmatter.title}</h1>
-      <slot />
+      <div class="no-preflight">
+        <slot />
+      </div>
     </div>
     <!-- <LiveComponent client:load /> -->
   </body>
