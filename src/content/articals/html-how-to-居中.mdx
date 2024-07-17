@@ -7,48 +7,67 @@ cover: https://ts1.cn.mm.bing.net/th?id=OIP.s3ZvWgXAZLAa5gKX2rsmGAAAAA&w=80&h=80
 tags: [前端, HTML, CSS, 布局]
 ---
 
-引言：
-在网页设计和开发中，实现元素的居中是一个常见但也常被低估的挑战。无论是在传统的网页布局中还是在响应式设计中，居中都是一个重要的考虑因素。本文旨在为读者提供全面的指南，解决HTML中各种居中问题，使他们能够轻松地实现各种居中布局。
+import { Code } from 'astro:components'
 
-## 图片居中
-水平居中：给图片外的盒子 写text-align:center，图片就可以居中展示
+引言：
+在网页设计和开发中，实现元素的居中是一个常见但也常被低估的挑战。无论是在传统的网页布局中还是在响应式设计中，居中都是一个重要的考虑因素。本文旨在为读者提供全面的指南，解决 HTML 中各种居中问题，使他们能够轻松地实现各种居中布局。
+
+<h2>图片居中</h2>
+<p>水平居中：给图片外的盒子 写text-align:center，图片就可以居中展示</p>
 ```css
 图片垂直居中：img{vertical-align：middle}
 ```
 
-## 文本居中
+<h2>文本居中</h2>
 在HTML中，实现文本的居中是网页设计中常见的需求之一。文本居中可以分为水平文本居中和垂直文本居中两种情况。
-引言：text-align CSS 属性设置块元素或者单元格框的行内内容的水平对齐。这意味着其效果和 vertical-align 类似，但是是水平方向的。
+引言：text-align CSS 属性设置块元素或者单元格框的行内内容的水平对齐。这意味着其效果和vertical-align
+类似，但是是水平方向的。
 
-A. 水平文本居中：
+<h3 class="text-orange-400">A. 水平文本居中：</h3>
 
-  1.使用CSS的text-align属性：通过将文本所在的父元素的text-align属性设置为"center"，可以实现文本在水平方向上的居中对齐。
-  ```css
-  .parent-element {
-    text-align: center;
-  }
-  ```
-  2.使用CSS的margin属性：通过将文本元素的左右margin值设置为"auto"，可以使文本在水平方向上居中对齐。
-  ```css
-  .text-element {
-    margin: 0 auto;
-  }
-  ```
-B. 垂直文本居中：
+- 1.使用 CSS 的 text-align 属性：通过将文本所在的父元素的 text-align 属性设置为"center"，可以实现文本在水平方向上的居中对齐。
 
-  1.使用CSS的line-height属性：通过设置文本所在容器的line-height属性为容器高度的值，可以实现单行文本在垂直方向上的居中对齐。
-  ```css
-  .container {
-    height: 100px; /* 容器高度 */
-    line-height: 100px; /* 与容器高度相同 */
-  }
-  ```
-  2.使用CSS的flex布局：通过使用flex布局，可以轻松实现文本在容器中的垂直居中。
-  ```css
-  .container {
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-  }
-  ```
-以上是在HTML中实现文本水平和垂直居中的两种常见方法。根据具体的布局需求和设计风格，选择合适的方法来实现文本居中效果。
+<Code
+  code={`
+.parent-element {
+  text-align: center;
+}`}
+  lang="css"
+/>
+
+- 2.使用 CSS 的 margin 属性：通过将文本元素的左右 margin 值设置为"auto"，可以使文本在水平方向上居中对齐。
+
+```css
+.text-element {
+  margin: 0 auto;
+}
+```
+
+<h3 class="text-orange-600">B. 垂直文本居中：</h3>
+
+- 1.使用 CSS 的 line-height属性：
+  通过设置文本所在容器的line-height属性为容器高度的值，可以实现单行文本在垂直方向上的居中对齐。
+
+```css
+.container {
+  height: 100px; /* 容器高度 */
+  line-height: 100px; /* 与容器高度相同 */
+}
+```
+
+- 2.使用 CSS 的 flex 布局：通过使用 flex 布局，可以轻松实现文本在容器中的垂直居中。
+
+```css
+.container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+```
+
+以上是在 HTML 中实现文本水平和垂直居中的两种常见方法。根据具体的布局需求和设计风格，选择合适的方法来实现文本居中效果。
+
+## 定位居中
+
+举例 如图所示：
+[![定位居中的图片](https://cdnjson.com/images/2024/07/17/73cea6b267004d329cd2dbbf965c9133.png)](https://cdnjson.com/images/2024/07/17/73cea6b267004d329cd2dbbf965c9133.png)

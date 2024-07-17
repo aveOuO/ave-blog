@@ -1,11 +1,17 @@
 ul,
 ol {
     list-style: none;
+    padding: 0;
+}
+
+.no-preflight ul,
+.no-preflight ol {
+    padding: revert;
+    list-style: unset;
 }
 
 * {
     margin: 0;
-    padding: 0;
 }
 
 img {
