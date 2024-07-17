@@ -27,7 +27,7 @@ const { frontmatter, url } = Astro.props
   </head>
   <body>
     <SiteHeader client:load path={url} />
-    <div class="w-[1200px] mx-auto pt-[80px] min-h-[110vh]">
+    <div class="w-[1200px] mx-auto pt-[80px] min-h-[110vh] mb-[50px]">
       <h1 class="text-4xl font-bold mb-4 text-center">{frontmatter.title}</h1>
       <div id="content" class="no-preflight">
         <slot />
