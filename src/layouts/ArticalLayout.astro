@@ -1,18 +1,18 @@
 ---
-import SiteHeader from "../components/SiteHeader.vue";
-import "tailwindcss/tailwind.css";
-import "../assets/style/public.css";
-import type { MarkdownLayoutProps } from "astro";
+import SiteHeader from '../components/SiteHeader.vue'
+import 'tailwindcss/tailwind.css'
+import '../assets/style/public.css'
+import type { MarkdownLayoutProps } from 'astro'
 
 type Props = MarkdownLayoutProps<{
   // Define frontmatter props here
-  title: string;
-  date: string;
-  desc: string;
-  cover: string;
-  tags: string[];
-}>;
-const { frontmatter, url } = Astro.props;
+  title: string
+  date: string
+  desc: string
+  cover: string
+  tags: string[]
+}>
+const { frontmatter, url } = Astro.props
 ---
 
 <!doctype html>
@@ -29,10 +29,27 @@ const { frontmatter, url } = Astro.props;
     <SiteHeader client:load path={url} />
     <div class="w-[1200px] mx-auto pt-[80px] min-h-[110vh]">
       <h1 class="text-4xl font-bold mb-4 text-center">{frontmatter.title}</h1>
-      <div class="no-preflight">
+      <div id="content" class="no-preflight">
         <slot />
       </div>
     </div>
     <!-- <LiveComponent client:load /> -->
+
+    <script>
+      window.onload = () => {
+        document
+          .querySelector('#content')
+          ?.querySelectorAll('a')
+          .forEach((a) => {
+            a.href && a.href.startsWith('http') && (a.target = '_blank')
+          })
+      }
+    </script>
+
+    <style is:inline>
+      #content pre.astro-code {
+        padding: 20px;
+      }
+    </style>
   </body>
 </html>
