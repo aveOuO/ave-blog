@@ -25,7 +25,7 @@ import { Code } from 'astro:components'
 
 <h3 class="text-orange-400">A. 水平文本居中：</h3>
 
-- 1.使用 CSS 的 text-align 属性：通过将文本所在的父元素的 text-align 属性设置为"center"，可以实现文本在水平方向上的居中对齐。
+1. 使用 CSS 的 text-align 属性：通过将文本所在的父元素的 text-align 属性设置为"center"，可以实现文本在水平方向上的居中对齐。
 
 <Code
   code={`
@@ -35,7 +35,7 @@ import { Code } from 'astro:components'
   lang="css"
 />
 
-- 2.使用 CSS 的 margin 属性：通过将文本元素的左右 margin 值设置为"auto"，可以使文本在水平方向上居中对齐。
+2. 使用 CSS 的 margin 属性：通过将文本元素的左右 margin 值设置为"auto"，可以使文本在水平方向上居中对齐。
 
 ```css
 .text-element {
@@ -45,8 +45,8 @@ import { Code } from 'astro:components'
 
 <h3 class="text-orange-600">B. 垂直文本居中：</h3>
 
-- 1.使用 CSS 的 line-height属性：
-  通过设置文本所在容器的line-height属性为容器高度的值，可以实现单行文本在垂直方向上的居中对齐。
+1. 使用 CSS 的 line-height属性：
+   通过设置文本所在容器的line-height属性为容器高度的值，可以实现单行文本在垂直方向上的居中对齐。
 
 ```css
 .container {
@@ -55,7 +55,7 @@ import { Code } from 'astro:components'
 }
 ```
 
-- 2.使用 CSS 的 flex 布局：通过使用 flex 布局，可以轻松实现文本在容器中的垂直居中。
+2. 使用 CSS 的 flex 布局：通过使用 flex 布局，可以轻松实现文本在容器中的垂直居中。
 
 ```css
 .container {
@@ -71,3 +71,106 @@ import { Code } from 'astro:components'
 
 举例 如图所示：
 [![定位居中的图片](https://cdnjson.com/images/2024/07/17/73cea6b267004d329cd2dbbf965c9133.png)](https://cdnjson.com/images/2024/07/17/73cea6b267004d329cd2dbbf965c9133.png)
+
+图中的input输入框是在页面水平居中的，实现代码如下：
+
+<Code
+  code={`/* 给这个输入框的大div.container盒子写入样式控制 */
+.container {
+    position: fixed;
+    width: 540px;
+    margin: 0 auto;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);  //关键
+}
+/* 如果需要实现输入框在页面水平和垂直方向都居中，改写如下 */
+.container {
+    position: fixed;
+    width: 540px;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    }`}
+  lang="css"
+/>
+
+## 元素居中
+
+在HTML中，实现元素的居中布局是网页设计中常见的挑战之一。元素居中可以分为水平元素居中和垂直元素居中两种情况。下面将详细探讨如何实现这两种元素居中布局效果。
+
+**水平元素居中：**
+
+1. 使用CSS的margin属性：通过将元素的左右margin值设置为"auto"，可以使元素在水平方向上居中对齐。
+
+```css
+.element {
+  margin: 0 auto;
+}
+```
+
+2. 使用CSS的flex布局：通过使用flex布局，可以轻松实现元素在容器中的水平居中。
+
+```css
+.container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+}
+```
+
+**垂直元素居中：**
+
+1. 使用CSS的flex布局：通过使用flex布局，可以轻松实现元素在容器中的垂直居中。
+
+```css
+.container {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+}
+```
+
+2. 使用CSS的transform属性：通过将元素的position属性设置为"absolute"，并结合使用transform属性，可以实现元素在父容器中的垂直居中。
+
+```css
+.element {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+```
+
+## 响应式设计中的居中技巧
+
+响应式设计要求网页能够适应不同设备和屏幕尺寸，因此在实现居中布局时需要考虑不同情况下的适配性。下面介绍几种在响应式设计中常用的居中技巧：
+
+### 弹性盒子布局（Flexbox）：
+
+弹性盒子布局是一种灵活的布局模型，能够轻松实现元素的居中对齐。在响应式设计中，使用flex布局可以方便地实现水平和垂直居中效果，而且适用于各种布局情况。
+
+```css
+.container {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+```
+
+### 网格布局（Grid）：
+
+网格布局是一种强大的布局系统，能够将网页划分为行和列，轻松实现复杂的布局效果。在响应式设计中，使用网格布局可以实现元素在不同设备上的居中对齐，同时保持页面的整体结构和美观性。
+
+```css
+.container {
+  display: grid;
+  place-items: center; /* 元素居中 */
+}
+```
+
+以上是在响应式设计中常用的两种居中技巧。根据具体的设计需求和布局情况，选择合适的布局模型来实现居中效果，确保网页在不同设备上都能够呈现出良好的用户体验。
+
+以上是在HTML中实现元素水平和垂直居中的几种常见方法。根据具体的布局需求和设计风格，选择合适的方法来实现元素居中布局效果。
+
+结尾：
+
+在HTML中实现居中布局可能看起来简单，但实际上需要深入的理解和灵活的技巧。通过本文的学习，读者将掌握各种居中技术，能够更加自如地设计出美观且功能强大的网页。居中布局不再是一个困扰，而是一个轻松驾驭的技巧，带来更加令人满意的用户体验和设计效果。
