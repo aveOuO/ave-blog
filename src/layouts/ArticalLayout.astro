@@ -15,7 +15,11 @@ type Props = MarkdownLayoutProps<{
 const { frontmatter, url } = Astro.props
 ---
 
-<!doctype html>
+<script>
+  import { documentVisibleChange } from '../utils/tools'
+  documentVisibleChange()
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
