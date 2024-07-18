@@ -10,6 +10,11 @@ ol {
     list-style: unset;
 }
 
+.no-preflight ol {
+    list-style-type: decimal !important;
+}
+
+
 * {
     margin: 0;
 }

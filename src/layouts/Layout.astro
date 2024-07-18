@@ -1,18 +1,23 @@
 ---
 // import LiveComponent from "../components/LiveComponent.vue";
-import SiteHeader from "../components/SiteHeader.vue";
-import "element-plus/dist/index.css";
-import "tailwindcss/tailwind.css";
-import "../assets/style/public.css";
+import SiteHeader from '../components/SiteHeader.vue'
+import 'element-plus/dist/index.css'
+import 'tailwindcss/tailwind.css'
+import '../assets/style/public.css'
+
 interface Props {
-  title: string;
-  path: string;
+  title: string
+  path: string
 }
 
-const { title, path } = Astro.props;
+const { title, path } = Astro.props
 ---
 
-<!doctype html>
+<script>
+  import { documentVisibleChange } from '../utils/tools'
+  documentVisibleChange()
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
