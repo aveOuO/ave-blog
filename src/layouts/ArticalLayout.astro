@@ -18,6 +18,15 @@ const { frontmatter, url } = Astro.props
 <script>
   import { documentVisibleChange } from '../utils/tools'
   documentVisibleChange()
+
+  window.onload = () => {
+    document
+      .querySelector('#content')
+      ?.querySelectorAll('a')
+      .forEach((a) => {
+        a.href && a.href.startsWith('http') && (a.target = '_blank')
+      })
+  }
 </script>
 
 <html lang="en">
@@ -28,6 +37,22 @@ const { frontmatter, url } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
+    <style is:global lang="scss">
+      #content pre.astro-code {
+        padding: 20px;
+      }
+      #content {
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          line-height: 2em;
+        }
+      }
+    </style>
   </head>
   <body>
     <SiteHeader client:load path={url} />
@@ -38,22 +63,5 @@ const { frontmatter, url } = Astro.props
       </div>
     </div>
     <!-- <LiveComponent client:load /> -->
-
-    <script>
-      window.onload = () => {
-        document
-          .querySelector('#content')
-          ?.querySelectorAll('a')
-          .forEach((a) => {
-            a.href && a.href.startsWith('http') && (a.target = '_blank')
-          })
-      }
-    </script>
-
-    <style is:inline>
-      #content pre.astro-code {
-        padding: 20px;
-      }
-    </style>
   </body>
 </html>
