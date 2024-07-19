@@ -76,8 +76,8 @@ import { Code } from 'astro:components'
 
 图中的input输入框是在页面水平居中的，实现代码如下：
 
-<Code
-  code={`/* 给这个输入框的大div.container盒子写入样式控制 */
+```css
+/* 给这个输入框的大div.container盒子写入样式控制 */
 .container {
     position: fixed;
     width: 540px;
@@ -94,9 +94,8 @@ import { Code } from 'astro:components'
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    }`}
-  lang="css"
-/>
+}
+```
 
 ## 元素居中
 
